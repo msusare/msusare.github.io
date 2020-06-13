@@ -1,9 +1,4 @@
-/**
-* Template Name: iPortfolio - v1.2.1
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
 !(function($) {
   "use strict";
 
@@ -160,8 +155,9 @@
   $(".portfolio-details-carousel").owlCarousel({
     autoplay: true,
     dots: true,
-    loop: true,
-    items: 1
+    stagePadding: 100,
+    loop:true,
+    margin:100,
   });
 
   // Initi AOS
@@ -171,3 +167,12 @@
   });
 
 })(jQuery);
+
+function myJsFunc() {
+
+}
+
+$('#portfolio div div div').click(function() {
+  localStorage.setItem("portfolio-details", $(this).find('a').attr("title"));
+  window.location.href = "portfolio-details.html";
+})

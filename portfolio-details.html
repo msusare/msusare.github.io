@@ -29,6 +29,27 @@
 </head>
 
 <body>
+  <script src="project-details.js"></script>
+  <script>
+    var name=localStorage.getItem("portfolio-details");
+    var selectedProject =  projects.projects.filter(function(project) {
+	    return project.projectName == name;
+    });
+    console.log(selectedProject[0].projectName)
+    window.onload = function() {
+      what();
+      function what() {
+        document.getElementById("Category").innerHTML = selectedProject[0].projectName;
+        document.getElementById("Date").innerHTML = selectedProject[0].projectDate;
+        document.getElementById("URL").innerHTML = selectedProject[0].projectURL;
+        document.getElementById("URL").href = selectedProject[0].projectURL;
+        document.getElementById("Client").innerHTML = selectedProject[0].projectClient;
+        document.getElementById("DescriptionHead").innerHTML = selectedProject[0].projectName;
+        document.getElementById("Description").innerHTML = selectedProject[0].projectDescription;
+      };
+    }
+    
+  </script>
 
   <!-- ======= Mobile nav toggle button ======= -->
   <button type="button" class="mobile-nav-toggle d-xl-none"><i class="icofont-navigation-menu"></i></button>
@@ -39,13 +60,12 @@
 
       <div class="profile">
         <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html"></a>Mayur Susare</a></h1>
+        <h1 class="text-light"><a href="index.html">Mayur Susare</a></h1>
         <div class="social-links mt-3 text-center">
-          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          <a href="https://twitter.com/MayurSusare" class="twitter" target="_blank"><i class="bx bxl-twitter" ></i></a>
+          <a href="https://www.facebook.com/msusare" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
+          <a href="https://www.instagram.com/mayur_susare" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
+          <a href="www.linkedin.com/in/mayur-susare-45500948" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
         </div>
       </div>
 
@@ -55,7 +75,6 @@
           <li><a href="#about"><i class="bx bx-user"></i> <span>About</span></a></li>
           <li><a href="#resume"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
           <li><a href="#portfolio"><i class="bx bx-book-content"></i> Portfolio</a></li>
-          <li><a href="#services"><i class="bx bx-server"></i> Services</a></li>
           <li><a href="#contact"><i class="bx bx-envelope"></i> Contact</a></li>
 
         </ul>
@@ -72,10 +91,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Portfoio Details</h2>
+          <h2>Portfolio Details</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>Portfoio Details</li>
+            <li>Portfolio Details</li>
           </ol>
         </div>
 
@@ -88,29 +107,27 @@
 
         <div class="portfolio-details-container">
 
-          <div class="owl-carousel portfolio-details-carousel">
-            <img src="assets/img/portfolio-details-1.jpg" class="img-fluid" alt="">
-            <img src="assets/img/portfolio-details-2.jpg" class="img-fluid" alt="">
-            <img src="assets/img/portfolio-details-3.jpg" class="img-fluid" alt="">
+          <div class="owl-carousel portfolio-details-carousel" id="portfolio-details-carousel">
+            <img src="assets/img/oncoPower/login.png" class="img-fluid" alt="">
+            <img src="assets/img/oncoPower/feeds.png" class="img-fluid" alt="">
+            <img src="assets/img/oncoPower/connect.png" class="img-fluid" alt="">
           </div>
 
           <div class="portfolio-info">
             <h3>Project information</h3>
-            <ul>
-              <li><strong>Category</strong>: Web design</li>
-              <li><strong>Client</strong>: ASU Company</li>
-              <li><strong>Project date</strong>: 01 March, 2020</li>
-              <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+            <ul id = "project_information">
+              <li><strong>Category</strong>: <span id="Category"></span></li>
+              <li><strong>Client</strong>: <span id="Client"></span></li>
+              <li><strong>Project date</strong>: <span id="Date"></span></li>
+              <li><strong>Project URL</strong>: <a href="#" target="_blank" id ="URL"></a></li>
             </ul>
           </div>
 
         </div>
 
         <div class="portfolio-description">
-          <h2>This is an example of portfolio detail</h2>
-          <p>
-            Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-          </p>
+          <h1 id ="DescriptionHead"></h1>
+          <p id ="Description"></p>
         </div>
 
       </div>
@@ -122,13 +139,9 @@
   <footer id="footer">
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Mayur Susare</span></strong>
+        &copy; Copyright <strong></strong>
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
         Designed by Mayur Susare</a>
       </div>
     </div>
