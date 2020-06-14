@@ -965,6 +965,18 @@ section {
   z-index: 1;
 }
 
+/* .portfolio-details .portfolio-details-carousel .item {
+  background: #a1def8;
+  padding: 30px 0px;
+  display: block;
+  margin: 5px;
+  color: #FFF;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+} */
+
 .portfolio-details .portfolio-details-carousel .owl-nav, .portfolio-details .portfolio-details-carousel .owl-dots {
   margin-top: 5px;
   text-align: left;
@@ -1034,6 +1046,12 @@ section {
     position: static;
     margin-top: 30px;
   }
+}
+
+.portfolio-details .portfolio-technologies td th{
+    width: 300px;
+    text-align: left;
+    padding: 5px;
 }
 
 /*--------------------------------------------------------------

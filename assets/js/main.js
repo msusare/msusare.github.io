@@ -151,14 +151,14 @@
     }
   });
 
-  // Portfolio details carousel
-  $(".portfolio-details-carousel").owlCarousel({
-    autoplay: true,
-    dots: true,
-    stagePadding: 100,
-    loop:true,
-    margin:100,
-  });
+  // // Portfolio details carousel
+  // $(".portfolio-details-carousel").owlCarousel({
+  //   autoplay: true,
+  //   dots: true,
+  //   stagePadding: 100,
+  //   loop:true,
+  //   margin:100,
+  // });
 
   // Initi AOS
   AOS.init({
@@ -172,7 +172,7 @@ function myJsFunc() {
 
 }
 
-$('#portfolio div div div').click(function() {
+$('#portfolio-items div div div').click(function() {
   localStorage.setItem("portfolio-details", $(this).find('a').attr("title"));
   window.location.href = "portfolio-details.html";
 })

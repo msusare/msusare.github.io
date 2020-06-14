@@ -26,6 +26,14 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    th,
+    td {
+      width: 250px;
+      text-align: left;
+    }
+    </style>
 </head>
 
 <body>
@@ -43,11 +51,45 @@
         document.getElementById("Date").innerHTML = selectedProject[0].projectDate;
         document.getElementById("URL").innerHTML = selectedProject[0].projectURL;
         document.getElementById("URL").href = selectedProject[0].projectURL;
+        document.getElementById("app-store-url").href = selectedProject[0].appStoreURL;
         document.getElementById("Client").innerHTML = selectedProject[0].projectClient;
         document.getElementById("DescriptionHead").innerHTML = selectedProject[0].projectName;
         document.getElementById("Description").innerHTML = selectedProject[0].projectDescription;
+
+        var content = "";
+        for (let index = 0; index < selectedProject[0].images.length; index++) {
+          content += "<img src=\"" +selectedProject[0].images[index]+ "\" class=\"img-fluid\" alt=\"\">"
+        }
+
+        var markup = ""
+        for (let index = 0; index < selectedProject[0].technologies.length; index++) {
+
+          if (index % 2 == 0) {
+            markup += "<tr><td>" + selectedProject[0].technologies[index] + "</td>";
+          }else if (index % 2 != 0){
+            markup += "<td>" + selectedProject[0].technologies[index] + "</td></tr>";
+          }  
+        }
+        
+        $("table").append(markup);
+
+        $("#owl-demo").html(content);
+
+        $(document).ready(function() {
+          var owl = $("#owl-demo");
+          owl.owlCarousel({
+            autoplay: true,
+            dots: true,
+            stagePadding: 100,
+            loop:true,
+            margin:100,
+          });
+          $("#owl-demo").owlCarousel();
+        });
       };
     }
+
+    
     
   </script>
 
@@ -107,10 +149,7 @@
 
         <div class="portfolio-details-container">
 
-          <div class="owl-carousel portfolio-details-carousel" id="portfolio-details-carousel">
-            <img src="assets/img/oncoPower/login.png" class="img-fluid" alt="">
-            <img src="assets/img/oncoPower/feeds.png" class="img-fluid" alt="">
-            <img src="assets/img/oncoPower/connect.png" class="img-fluid" alt="">
+          <div class="owl-carousel portfolio-details-carousel" id="owl-demo">
           </div>
 
           <div class="portfolio-info">
@@ -128,6 +167,44 @@
         <div class="portfolio-description">
           <h1 id ="DescriptionHead"></h1>
           <p id ="Description"></p>
+        </div>
+
+        <div class="portfolio-technologies"> 
+          <br>
+          <table cellpadding="5" >
+            <tr>
+                <th colspan="0" class="b1">Technologies</th>
+            </tr>
+            <!-- <tr>
+                <td>Swift</td>
+                <td>Crashlytics</td>
+            </tr>
+            <tr>
+                <td>SQLite</td>
+                <td>In-App Purchases</td>
+            </tr>
+            <tr>
+                <td>Programatic User Interface</td>
+                <td>Push Notifications</td>
+            </tr> -->
+          </table>
+        </div>
+
+        <br>
+        <br>
+        <div>
+          <a
+          href="#"
+          style="
+            display: inline-block;
+            overflow: hidden;
+            background: url(https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2020-01-14&kind=iossoftware&bubble=ios_apps)
+              no-repeat;
+            width: 135px;
+            height: 40px;
+          " target="_blank" id ="app-store-url"
+        ></a>
+
         </div>
 
       </div>
